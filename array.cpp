@@ -5,12 +5,12 @@ using namespace std;
 void linear_search(int* array, int& len_arr) {
     int key;
 
-    cout << "Óêàæèòå ıëåìåíò ìàññèâà, êîòîğûé íåîáõîäèìî íàéòè: ";
+    cout << "Ğ£ĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°, ĞºĞ¾Ñ‚Ğ¾Ñ€Ñ‹Ğ¹ Ğ½ĞµĞ¾Ğ±Ñ…Ğ¾Ğ´Ğ¸Ğ¼Ğ¾ Ğ½Ğ°Ğ¹Ñ‚Ğ¸: ";
     cin >> key;
 
     for (int i = 0; i < len_arr; i++) {
         if (array[i] == key) {
-            cout << "Èíäåêñ èñêîìîãî ıëåìåíòà: " << i << endl;
+            cout << "Ğ˜Ğ½Ğ´ĞµĞºÑ Ğ¸ÑĞºĞ¾Ğ¼Ğ¾Ğ³Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ°: " << i << endl;
         }
     }
 }
@@ -20,12 +20,12 @@ void linear_search(int* array, int& len_arr) {
 bool delete_element(int* array, int& len_arr) {
     int n;
 
-    cout << "Óêàæèòå íîìåğ ıëåìåíòà ìàññèâà, êîòîğûé íåîáõîäèìî óäàëèòü: ";
+    cout << "Ğ£ĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ Ğ½Ğ¾Ğ¼ĞµÑ€ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ° Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°, ĞºĞ¾Ñ‚Ğ¾Ñ€Ñ‹Ğ¹ Ğ½ĞµĞ¾Ğ±Ñ…Ğ¾Ğ´Ğ¸Ğ¼Ğ¾ ÑƒĞ´Ğ°Ğ»Ğ¸Ñ‚ÑŒ: ";
     cin >> n;
 
     if (n > len_arr || n < 1)
     {
-        cout << "Îøèáêà óäàëåíèÿ" << endl;
+        cout << "ĞÑˆĞ¸Ğ±ĞºĞ° ÑƒĞ´Ğ°Ğ»ĞµĞ½Ğ¸Ñ" << endl;
         return false;
     }
 
@@ -44,7 +44,7 @@ int main()
     setlocale(LC_ALL, "rus");
 
     int length;
-    cout << "Ââåäèòå êîëè÷åñòâî ıëåìåíòîâ ìàññèâà: ";
+    cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ¾Ğ² Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°: ";
     cin >> length;
 
     int* array_ptr = new int[length];
