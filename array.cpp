@@ -1,35 +1,50 @@
 #include <iostream>
 using namespace std;
 
-
-void linear_search(int* array, int& len_arr) {
-    int key;
-
-    cout << "Укажите элемент массива, который необходимо найти: ";
-    cin >> key;
-
+void create_array(int* array, int& len_arr) {
     for (int i = 0; i < len_arr; i++) {
-        if (array[i] == key) {
-            cout << "Индекс искомого элемента: " << i << endl;
+        array[i] = rand() % 100;
+    }
+}
+
+void print_array(int* array, int& len_arr) {
+    for (int i = 0; i < len_arr; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+int linear_search(int* array, int& len_arr, int elem) {
+    for (int i = 0; i < len_arr; i++) {
+        if (array[i] == elem) {
+            return i;
         }
     }
 }
 
-//void add_element(int* array, int& len_arr) {}
+int * add_element(int* array, int& len_arr) {
+    int* temp = NULL;
+    int len_temp = len_arr + 1;
+    int sum = 0;
+    temp = new int[len_arr];
+    for (int i = 0; i < len_arr; i++) {
+        temp[i] = array[i];
+        sum += array[i];
+    }
+    temp[len_temp] = sum;
+    delete[] array;
 
-bool delete_element(int* array, int& len_arr) {
-    int n;
+    return temp;
+}
 
-    cout << "Укажите номер элемента массива, который необходимо удалить: ";
-    cin >> n;
-
-    if (n > len_arr || n < 1)
+bool delete_element(int* array, int& len_arr, int elem) {
+    if (elem > len_arr || elem < 1)
     {
         cout << "Ошибка удаления" << endl;
         return false;
     }
 
-    for (int i = n - 1; i < len_arr - 1; i++)
+    for (int i = elem - 1; i < len_arr - 1; i++)
     {
         array[i] = array[i + 1];
 
@@ -48,23 +63,23 @@ int main()
     cin >> length;
 
     int* array_ptr = new int[length];
+    create_array(array_ptr, length);
+    print_array(array_ptr, length);
 
-    for (int i = 0; i < length; i++) {
-        array_ptr[i] = rand() % 100;
-        cout << array_ptr[i] << " ";
-    }
-    cout << endl;
+    int search_elem;
+    cout << "Укажите элемент массива, который необходимо найти: ";
+    cin >> search_elem;
+    int search_ind = linear_search(array_ptr, length, search_elem);
+    cout << "Искомый элемент находиться под индексом " << search_ind << endl;
+    
+   array_ptr = add_element(array_ptr, length);
+    print_array(array_ptr, length);
 
-    linear_search(array_ptr, length);
-
-    //add_element(array_ptr, length);
-
-    delete_element(array_ptr, length);
-
-    for (int i = 0; i < length; i++) {
-        array_ptr[i] = rand() % 100;
-        cout << array_ptr[i] << " ";
-    }
+    int del_elem;
+    cout << "Укажите номер элемента массива, который необходимо удалить: ";
+    cin >> del_elem;
+    delete_element(array_ptr, length, del_elem);
+    print_array(array_ptr, length);    
 
     delete[] array_ptr;
 }
